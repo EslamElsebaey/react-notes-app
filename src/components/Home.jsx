@@ -77,7 +77,7 @@ const addNote = () => {
     // alertify.success( "Added successfully" ,3);
     toast.success('Added successfully', {
         position: "bottom-right",
-        autoClose: 3000,
+        autoClose: 2000,
         hideProgressBar: false,
         closeOnClick: true,
         pauseOnHover: true,
@@ -103,7 +103,7 @@ const addNote = () => {
         // alertify.success( "Deleted successfully" ,3);
         toast.success('Deleted successfully', {
             position: "bottom-right",
-            autoClose: 3000,
+            autoClose: 2000,
             hideProgressBar: false,
             closeOnClick: true,
             pauseOnHover: true,
@@ -122,7 +122,7 @@ function DeleteAll(){
         // alertify.success( " Notes deleted successfully" ,3);
         toast.success('All deleted successfully', {
             position: "bottom-right",
-            autoClose: 3000,
+            autoClose: 2000,
             hideProgressBar: false,
             closeOnClick: true,
             pauseOnHover: true,
@@ -157,7 +157,7 @@ function updateNote(){
     // alertify.success( "Updated successfully" ,3);
     toast.success('Updated successfully', {
         position: "bottom-right",
-        autoClose: 3000,
+        autoClose: 2000,
         hideProgressBar: false,
         closeOnClick: true,
         pauseOnHover: true,

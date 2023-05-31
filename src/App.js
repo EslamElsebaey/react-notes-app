@@ -19,7 +19,6 @@ function App() {
     <Route path="/" element={<Login/>} />
     <Route path="/home" element={ <Protectedroute><Home/></Protectedroute> } />
     <Route path="/login" element={ <Login/>} />
-    {/* <Route path="/react-notes-app" element={ <Login/>} /> */}
     <Route path="/register" element={<Register/>} />
     <Route path="*" element={<NotFound/>} />
    </Routes>

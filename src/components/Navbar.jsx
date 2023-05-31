@@ -32,6 +32,7 @@ useEffect(() => {
    <nav className="navbar navbar-expand-lg navbar-dark">
         <div className="container">
             <Link  className="navbar-brand" to="/home">Notes</Link>
+            {userName &&  <span className='navbar-user' >Hello {userName} <i className="fas fa-heart"></i></span> }
             <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
             <i className="fas fa-bars"></i>
                 </button>
