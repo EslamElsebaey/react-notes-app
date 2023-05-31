@@ -8,7 +8,7 @@ function Navbar() {
 useEffect(() => {
     $(".nav-link").click(()=>{
         $('.navbar-collapse').removeClass('show');
-    })
+    }) 
 }, [])
 
 
@@ -26,30 +26,28 @@ useEffect(() => {
              let user =  jwtDecode(userToken)
             var userName = user.first_name
        }
+
+
+
+
   return (
    <>
    
    <nav className="navbar navbar-expand-lg navbar-dark">
         <div className="container">
-            <Link  className="navbar-brand" to="/home">Notes</Link>
-            {userName &&  <span className='navbar-user' >Hello {userName} <i className="fas fa-heart"></i></span> }
+            {location.pathname === "/home" ?   <span className='navbar-user' >Hello {userName} <i className="fas fa-heart"></i></span>  :<Link  className="navbar-brand" to="/home">Notes</Link>  }
+            
+           
             <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
             <i className="fas fa-bars"></i>
                 </button>
             <div className="collapse navbar-collapse" id="navbarNav">
-               {location.pathname === "/home" ? <ul className="navbar-nav ml-auto">
-                {
-
-                userName && <li className="nav-item"> <span className='nav-link' >Hello {userName} <i className="fas fa-heart"></i></span> </li>
-                  
-                  
-                }
-                    
+               {location.pathname === "/home" ? <ul className="navbar-nav ml-auto">     
                     <li className="nav-item">
                         <Link onClick={logOut}  className="nav-link" to="/">Logout</Link>
                     </li>
                 </ul> :  <ul className="navbar-nav ml-auto">
-                    <li className="nav-item">
+                    <li className={`nav-item ${location.pathname !== "/home" ? 'margin-bottom' : ""}  ` }    >
                         <Link  className="nav-link" to="/register">Register</Link>
                     </li>
                     <li className="nav-item">
@@ -58,6 +56,8 @@ useEffect(() => {
                 </ul>  } 
                
             </div>
+            
+        
         </div>
     </nav>
    </>

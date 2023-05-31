@@ -74,7 +74,6 @@ const addNote = () => {
         desc : "", 
         id : Math.random()
     });
-    // alertify.success( "Added successfully" ,3);
     toast.success('Added successfully', {
         position: "bottom-right",
         autoClose: 2000,
@@ -100,7 +99,6 @@ const addNote = () => {
        notes = [...newNotes];
        setNotes(notes);
        localStorage.setItem('notes', JSON.stringify(notes));
-        // alertify.success( "Deleted successfully" ,3);
         toast.success('Deleted successfully', {
             position: "bottom-right",
             autoClose: 2000,
@@ -119,7 +117,6 @@ function DeleteAll(){
     "Are you sure you want to delete all notes ?", function(){
         setNotes([]);
         localStorage.removeItem("notes");
-        // alertify.success( " Notes deleted successfully" ,3);
         toast.success('All deleted successfully', {
             position: "bottom-right",
             autoClose: 2000,
@@ -135,7 +132,7 @@ function DeleteAll(){
 }
 
 
-function shhowUpdateBox (noteId){
+function showUpdateBox (noteId){
        let newNote = notes.filter((note)=>  {
         return note.id === noteId
        })
@@ -154,7 +151,6 @@ function updateNote(){
     updatedNote[0].desc = $(".modal-body textarea").val();
     localStorage.setItem("notes" , JSON.stringify(allNotes));
     setNotes(allNotes)
-    // alertify.success( "Updated successfully" ,3);
     toast.success('Updated successfully', {
         position: "bottom-right",
         autoClose: 2000,
@@ -209,7 +205,7 @@ useEffect(()=>{
                     <div className='d-flex justify-content-between align-items-center'>
                     <h3 className='m-0'>{note.title} </h3>
                     <div className='d-flex align-align-items-center justify-align-content-center'>
-                    <button title='edit' onClick={()=>{shhowUpdateBox(note.id)}} data-toggle="modal" data-target="#exampleModal"  className='edit'>
+                    <button title='edit' onClick={()=>{showUpdateBox(note.id)}} data-toggle="modal" data-target="#exampleModal"  className='edit'>
                     <i className="fas fa-edit   "></i>
                     </button>
                     <button title='delete' onClick={ ()=> {deleteNote(note.id)} }  className='delete'>

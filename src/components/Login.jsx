@@ -1,8 +1,7 @@
 import axios from 'axios';
-import React, { useEffect, useState } from 'react'
+import React, {  useState } from 'react'
 import { useNavigate } from 'react-router-dom';
 import Joi from 'joi';
-import $ from "jquery"
 
 function Login() {
 
@@ -49,16 +48,19 @@ const [error , setError] = useState("");
         setError("")
         let {data} = await axios.post("https://route-movies-api.vercel.app/signin" , userLogin);
         if(data.message === "success") {
-            setSuccess(data.message);
-            setError("")
-           localStorage.setItem("userToken" , data.token)
             setTimeout(() => {
                 navigation("/home");
             }, 2000);
+            setSuccess(data.message);
+            setError("")
+           localStorage.setItem("userToken" , data.token)
+         
         }else{
             setError(data.message)
         }
     }
+
+  
    
  }
 
@@ -86,10 +88,10 @@ const [error , setError] = useState("");
             return <li key={index} className=''>{error.message}</li>
           }) : ""}
           </ul> : "" }  
-            <form autocomplete="on" onSubmit={sendData} action="/handleSignin" method="POST">
+            <form  onSubmit={sendData} action="/handleSignin" method="POST">
                 <h2 className='text-center  mb-4'>Login</h2>
                 <div className="form-group">
-                    <input onChange={handleChange}  placeholder="Email" name="email" type="email" className="form-control" />
+                    <input onChange={handleChange}  placeholder="Email" name="email" type="text" className="form-control" />
                 </div>
                 <div className="form-group">
                     <input onChange={handleChange} placeholder="Password" name="password" type="password" className="form-control" />

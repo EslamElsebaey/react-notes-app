@@ -44,7 +44,6 @@ function Register() {
       let validate =   schema.validate(user , {abortEarly  : false}); 
       if(validate.error !== undefined){
         setErrors(validate.error.details);
-        console.log(validate.error.details)
         setError("")
         return false
       }else{
@@ -97,7 +96,7 @@ function Register() {
             return <li key={index} className=''>{error.message}</li>
           }) : ""}
           </ul> : "" } 
-            <form autocomplete="on" onSubmit={sendData}>
+            <form  onSubmit={sendData}>
             <h2 className='text-center  mb-4'>Register</h2>
                 <div className="form-group">
                     <input placeholder="First name" onChange={getUserData} name="first_name" type="text" className=" form-control" />
@@ -106,7 +105,7 @@ function Register() {
                     <input placeholder="Last name" onChange={getUserData} name="last_name" type="text" className=" form-control" />
                 </div>
                 <div className="form-group">
-                    <input placeholder="Email" onChange={getUserData} type="email" name="email" className="form-control" />
+                    <input placeholder="Email" onChange={getUserData} type="text" name="email" className="form-control" />
                 </div>
                 <div className="form-group">
                     <input placeholder="Password" onChange={getUserData} type="password" name="password" className="form-control" />
