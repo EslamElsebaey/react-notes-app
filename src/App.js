@@ -5,7 +5,6 @@ import Login from "./components/Login";
 import Register from "./components/Register";
 import NotFound from './components/NotFound';
 import Protectedroute from './components/ProtectedRoute';
-import { useEffect } from "react";
 
 
 
@@ -26,7 +25,7 @@ function App() {
     <Route path="/register" element={<Register/>} />
     <Route path="*" element={<NotFound/>} />
    </Routes>
-   <p className="developer">Made with <i className="fas fa-heart"></i> by <a target="_blank" href="https://www.linkedin.com/in/eslam-elsebaey-ab9564163/">Eslam Elsebaey</a></p>
+   <p className="developer">Made with <i className="fas fa-heart"></i> by <a rel="noreferrer" target="_blank" href="https://www.linkedin.com/in/eslam-elsebaey-ab9564163/">Eslam Elsebaey</a></p>
   
    
  
