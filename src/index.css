@@ -110,7 +110,10 @@ textarea:focus {
 .form-control:focus{
    box-shadow:   0 0 0 2px rgba(63, 123, 194,.25);
 }
-
+.updateBtn , .addBtn{
+    background-color: #3F7BC2;
+    color: #fff;
+}
 .notfound{
     color: red;
     font-size: 35px;

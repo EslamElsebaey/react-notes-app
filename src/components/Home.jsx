@@ -239,8 +239,8 @@ useEffect(()=>{
                     </div>
                     <div className="modal-footer">
                         <button type="button" className="btn btn-secondary" data-dismiss="modal">Close</button>
-                        <button data-dismiss="modal"  onClick={addNote}   className="btn addBtn btn-info"> Add Note</button>
-                        <button data-dismiss="modal" onClick={()=>{updateNote()}}     className="btn updateBtn btn-info"> Update Note</button>
+                        <button data-dismiss="modal"  onClick={addNote}   className="btn addBtn "> Add Note</button>
+                        <button data-dismiss="modal" onClick={()=>{updateNote()}}     className="btn updateBtn "> Update Note</button>
                     </div>
                 </div>
             </div>
