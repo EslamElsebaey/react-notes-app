@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/react-notes-app/static/css/main.834a3303.css",
-    "main.js": "/react-notes-app/static/js/main.15e6df86.js",
+    "main.js": "/react-notes-app/static/js/main.32ec98c8.js",
     "static/media/fa-solid-900.svg": "/react-notes-app/static/media/fa-solid-900.7a8b4f130182d19a2d7c.svg",
     "static/media/fa-brands-400.svg": "/react-notes-app/static/media/fa-brands-400.2f517e09eb2ca6650ff5.svg",
     "static/media/fa-solid-900.eot": "/react-notes-app/static/media/fa-solid-900.9bbb245e67a133f6e486.eot",
@@ -19,10 +19,10 @@
     "static/media/fa-regular-400.woff2": "/react-notes-app/static/media/fa-regular-400.7a3337626410ca2f4071.woff2",
     "index.html": "/react-notes-app/index.html",
     "main.834a3303.css.map": "/react-notes-app/static/css/main.834a3303.css.map",
-    "main.15e6df86.js.map": "/react-notes-app/static/js/main.15e6df86.js.map"
+    "main.32ec98c8.js.map": "/react-notes-app/static/js/main.32ec98c8.js.map"
   },
   "entrypoints": [
     "static/css/main.834a3303.css",
-    "static/js/main.15e6df86.js"
+    "static/js/main.32ec98c8.js"
   ]
 }
