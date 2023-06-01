@@ -2,6 +2,7 @@ import React, {   useEffect } from 'react'
 import {Link, useLocation} from "react-router-dom"
 import jwtDecode from "jwt-decode";
 import $ from "jquery"
+// import logo from "../images/notes.png"
 
 function Navbar() {
 
@@ -35,7 +36,8 @@ useEffect(() => {
    
    <nav className="navbar navbar-expand-lg navbar-dark">
         <div className="container">
-            {location.pathname === "/home" ?   <span className='navbar-user' >Hello {userName} <i className="fas fa-heart"></i></span>  :<Link  className="navbar-brand" to="/home">Notes</Link>  }
+            {location.pathname === "/home" ?   <span className='navbar-user' >Hello {userName} <i className="fas fa-heart"></i></span>  :<Link  className="navbar-brand" to="/home"> <img className='logo' src={process.env.PUBLIC_URL + '/images/notes.png'} alt="logo" /></Link>  }
+           
             
            
             <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">

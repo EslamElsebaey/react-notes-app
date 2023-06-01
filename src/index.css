@@ -13,7 +13,9 @@
     padding: 0;
 }
 
-
+.logo{
+    height:  35px;
+}
 .note h3 {
     font-size: 22px;
 }
@@ -189,12 +191,11 @@ color: #fff;
     color: #3F7BC2;
 }
 .navbar-brand {
-    text-align: center;
-    color: #3F7BC2 !important;
-    font-weight: 300;
-    font-size: 2rem;
-    margin: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
     padding: 0;
+    margin: 0;
 }
 
 .navbar-dark .navbar-nav .nav-link{
@@ -374,6 +375,12 @@ button[type="submit"]:hover{
 }
 
 @media screen and (max-width : 768px) {
+    .navbar-expand-lg>.container, .navbar-expand-lg>.container-fluid, .navbar-expand-lg>.container-lg, .navbar-expand-lg>.container-md, .navbar-expand-lg>.container-sm, .navbar-expand-lg>.container-xl{
+        padding: 0;
+    }
+    .logo{
+        height: 30px;
+    }
     .notfound{
         font-size: 22px;
     }
@@ -428,10 +435,7 @@ button[type="submit"]:hover{
     .note p{
         font-size: 16px;
     }
-    .navbar-brand{
-        font-size: 22px;
-        font-weight: 400;
-    }
+
     .navbar-dark .navbar-nav .nav-link{
         font-size: 16px;
     }
