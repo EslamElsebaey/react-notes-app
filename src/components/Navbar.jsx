@@ -36,7 +36,7 @@ useEffect(() => {
    
    <nav className="navbar navbar-expand-lg navbar-dark">
         <div className="container">
-            {location.pathname === "/home" ?   <span className='navbar-user' >Hello {userName} <i className="fas fa-heart"></i></span>  :<Link  className="navbar-brand" to="/home"> <img className='logo' src={process.env.PUBLIC_URL + '/images/notes.png'} alt="logo" /></Link>  }
+            {location.pathname === "/home" ?   <span className='navbar-user' >Hello {userName} <i className="fas fa-heart"></i></span>  :<Link  className="navbar-brand" to="/home"> <img className='logo' src={process.env.PUBLIC_URL + '/notes.png'} alt="logo" /></Link>  }
            
             
            
