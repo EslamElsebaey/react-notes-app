@@ -92,6 +92,9 @@ textarea:focus {
     outline: 0;
     border-color: #1ab188;
 }
+.Toastify__toast-container--bottom-right{
+    bottom: 40px;
+}
 
 .notfound-content{
     display: flex;
@@ -131,6 +134,10 @@ textarea {
     overflow-y: auto;
     padding: 20px;
 
+}
+
+.addBtn:hover {
+color: #fff;
 }
 .register-parent , .login-parent{
    padding-bottom: 80px;
@@ -313,6 +320,9 @@ button[type="submit"]:hover{
     color: #ED5E68;
     margin: 10px 0;
 }
+.updateBtn:hover{
+    color: #fff;
+}
 
 .note{
     padding: 20px;
@@ -325,6 +335,7 @@ button[type="submit"]:hover{
 .navbar-user{
     color: #3F7BC2;
     font-size: 1.2rem;
+    text-transform: capitalize;
 }
 .navbar-user i {
     color: red;
@@ -395,9 +406,7 @@ button[type="submit"]:hover{
     .alertify .ajs-body .ajs-content{
         padding: 10px 0;
     }
-    .alertify .ajs-dialog{
-        margin: 0;
-    }
+    
     .container, .container-fluid, .container-lg, .container-md, .container-sm, .container-xl{
         padding: 0 15px;
     }
