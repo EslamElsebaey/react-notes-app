@@ -77,7 +77,7 @@ const [error , setError] = useState("");
             <form  onSubmit={sendData} action="/handleSignin" method="POST">
                 <h2 className='text-center  mb-4'>Login</h2>
                 <div className="form-group">
-                    <input onChange={handleChange}  placeholder="Email" name="email" type="text" className="form-control" />
+                    <input onChange={handleChange} autoComplete="email"  placeholder="Email" name="email" type="text" className="form-control" />
                   {errors.length ? errors.map((error , index)  => {
                     if(error.message.includes("email")){
                         return <ul key={index} className='alert alert-danger mt-3 errorslist'> 
