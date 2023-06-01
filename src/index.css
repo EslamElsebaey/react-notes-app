@@ -124,7 +124,8 @@ textarea:focus {
     font-size: 35px;
 }
 textarea.form-control{
-    height: 100px;
+    height: auto;
+    max-height: 150px;
     resize: none;
 }
 textarea {
