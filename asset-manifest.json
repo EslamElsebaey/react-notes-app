@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/react-notes-app/static/css/main.0f8f3c04.css",
-    "main.js": "/react-notes-app/static/js/main.5e47bf1d.js",
+    "main.js": "/react-notes-app/static/js/main.bbc29ec6.js",
     "static/media/fa-solid-900.svg": "/react-notes-app/static/media/fa-solid-900.7a8b4f130182d19a2d7c.svg",
     "static/media/fa-brands-400.svg": "/react-notes-app/static/media/fa-brands-400.2f517e09eb2ca6650ff5.svg",
     "static/media/fa-solid-900.eot": "/react-notes-app/static/media/fa-solid-900.9bbb245e67a133f6e486.eot",
@@ -19,10 +19,10 @@
     "static/media/fa-regular-400.woff2": "/react-notes-app/static/media/fa-regular-400.7a3337626410ca2f4071.woff2",
     "index.html": "/react-notes-app/index.html",
     "main.0f8f3c04.css.map": "/react-notes-app/static/css/main.0f8f3c04.css.map",
-    "main.5e47bf1d.js.map": "/react-notes-app/static/js/main.5e47bf1d.js.map"
+    "main.bbc29ec6.js.map": "/react-notes-app/static/js/main.bbc29ec6.js.map"
   },
   "entrypoints": [
     "static/css/main.0f8f3c04.css",
-    "static/js/main.5e47bf1d.js"
+    "static/js/main.bbc29ec6.js"
   ]
 }
