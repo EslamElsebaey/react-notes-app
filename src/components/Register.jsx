@@ -77,9 +77,9 @@ function Register() {
     <>
     
     <div className="container mt-5 pt-5">
-        <div className="col-md-5 m-auto text-center">
+        <div className=" col-md-8 col-lg-5 p-0 m-auto text-center">
             <div className="register-parent">
-            {errors.length > 0 ?  <ul className='alert alert-danger errorslist'>
+            {/* {errors.length > 0 ?  <ul className='alert alert-danger errorslist'>
           {errors.length > 0 ? errors.map((error , index) => {
               if(error.message.includes("alpha-numeric")){
                 error.message = "Name must contains characters only"
@@ -95,21 +95,53 @@ function Register() {
               }
             return <li key={index} className=''>{error.message}</li>
           }) : ""}
-          </ul> : "" } 
+          </ul> : "" }  */}
             <form  onSubmit={sendData}>
             <h2 className='text-center  mb-4'>Register</h2>
                 <div className="form-group">
                     <input placeholder="First name" onChange={getUserData} name="first_name" type="text" className=" form-control" />
                 </div>
+                {errors.length ? errors.map((error , index)  => {
+                    if(error.path[0] === ("first_name")){
+                        return <ul key={index} className='alert alert-danger mt-3 errorslist'> 
+                        <li >{error.message}</li> </ul>
+                    }else{
+                        return  "";
+                    }
+                  }) : ""}
                 <div className="form-group">
                     <input placeholder="Last name" onChange={getUserData} name="last_name" type="text" className=" form-control" />
                 </div>
+                {errors.length ? errors.map((error , index)  => {
+                    if(error.path[0] === ("last_name")){
+                        return <ul key={index} className='alert alert-danger mt-3 errorslist'> 
+                        <li >{error.message}</li> </ul>
+                    }else{
+                        return  "";
+                    }
+                  }) : ""}
                 <div className="form-group">
                     <input placeholder="Email" onChange={getUserData} type="text" name="email" className="form-control" />
                 </div>
+                {errors.length ? errors.map((error , index)  => {
+                    if(error.path[0] === ("email")){
+                        return <ul key={index} className='alert alert-danger mt-3 errorslist'> 
+                        <li >{error.message}</li> </ul>
+                    }else{
+                        return  "";
+                    }
+                  }) : ""}
                 <div className="form-group">
                     <input placeholder="Password" onChange={getUserData} type="password" name="password" className="form-control" />
                 </div>
+                {errors.length ? errors.map((error , index)  => {
+                    if(error.path[0] === ("password")){
+                        return <ul key={index} className='alert alert-danger mt-3 errorslist'> 
+                        <li >{error.message}</li> </ul>
+                    }else{
+                        return  "";
+                    }
+                  }) : ""}
                 
                 <button type="submit" className="btn signup-btn  w-100">
                 Sign up

@@ -1,0 +1,37 @@
+Date : 2023-06-01 13:44:06
+Directory : d:\IT\Route\Assignments\React\react-notes-app\src
+Total : 9 files,  923 codes, 23 comments, 207 blanks, all 1153 lines
+
+Languages
++----------------+------------+------------+------------+------------+------------+
+| language       | files      | code       | comment    | blank      | total      |
++----------------+------------+------------+------------+------------+------------+
+| JavaScript JSX |          6 |        494 |         11 |        120 |        625 |
+| CSS            |          1 |        390 |         12 |         64 |        466 |
+| JavaScript     |          2 |         39 |          0 |         23 |         62 |
++----------------+------------+------------+------------+------------+------------+
+
+Directories
++---------------------------------------------------------------------------------+------------+------------+------------+------------+------------+
+| path                                                                            | files      | code       | comment    | blank      | total      |
++---------------------------------------------------------------------------------+------------+------------+------------+------------+------------+
+| .                                                                               |          9 |        923 |         23 |        207 |      1,153 |
+| . (Files)                                                                       |          3 |        429 |         12 |         87 |        528 |
+| components                                                                      |          6 |        494 |         11 |        120 |        625 |
++---------------------------------------------------------------------------------+------------+------------+------------+------------+------------+
+
+Files
++---------------------------------------------------------------------------------+----------------+------------+------------+------------+------------+
+| filename                                                                        | language       | code       | comment    | blank      | total      |
++---------------------------------------------------------------------------------+----------------+------------+------------+------------+------------+
+| d:\IT\Route\Assignments\React\react-notes-app\src\App.js                        | JavaScript     |         23 |          0 |         17 |         40 |
+| d:\IT\Route\Assignments\React\react-notes-app\src\components\Home.jsx           | JavaScript JSX |        209 |          3 |         42 |        254 |
+| d:\IT\Route\Assignments\React\react-notes-app\src\components\Login.jsx          | JavaScript JSX |         97 |          8 |         29 |        134 |
+| d:\IT\Route\Assignments\React\react-notes-app\src\components\Navbar.jsx         | JavaScript JSX |         48 |          0 |         20 |         68 |
+| d:\IT\Route\Assignments\React\react-notes-app\src\components\NotFound.jsx       | JavaScript JSX |         15 |          0 |          7 |         22 |
+| d:\IT\Route\Assignments\React\react-notes-app\src\components\ProtectedRoute.jsx | JavaScript JSX |          9 |          0 |          3 |         12 |
+| d:\IT\Route\Assignments\React\react-notes-app\src\components\Register.jsx       | JavaScript JSX |        116 |          0 |         19 |        135 |
+| d:\IT\Route\Assignments\React\react-notes-app\src\index.css                     | CSS            |        390 |         12 |         64 |        466 |
+| d:\IT\Route\Assignments\React\react-notes-app\src\index.js                      | JavaScript     |         16 |          0 |          6 |         22 |
+| Total                                                                           |                |        923 |         23 |        207 |      1,153 |
++---------------------------------------------------------------------------------+----------------+------------+------------+------------+------------+
