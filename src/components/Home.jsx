@@ -167,18 +167,22 @@ function updateNote(){
 
 
 useEffect(()=>{
+
+    $(".edit").click(function(){
+        $(".updateBtn").show()
+        $(".addBtn").hide()
+    })
+    
     $(".add").click(function(){
         $(".modal-body input").val("")
         $(".modal-body textarea").val("") 
         $(".updateBtn").hide()
         $(".addBtn").show()
     })
-        
-    $(".edit").click(function(){
-    $(".updateBtn").show()
-    $(".addBtn").hide()
-    })
+   
 })
+
+
 
 
 
