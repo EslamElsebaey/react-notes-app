@@ -24,7 +24,7 @@ const [error , setError] = useState("");
  }
 
   
- function validateLoginUser() {
+ function validatUserLogin() {
     let schema = Joi.object({
         email : Joi.string()
         .email({ minDomainSegments: 2, tlds: { allow: ['com', 'net'] } }).required() ,
@@ -44,7 +44,7 @@ const [error , setError] = useState("");
 
   async function sendData(e) {
     e.preventDefault() ;
-    if(validateLoginUser() === true){
+    if(validatUserLogin() === true){
         setError("")
         let {data} = await axios.post("https://route-movies-api.vercel.app/signin" , userLogin);
         if(data.message === "success") {

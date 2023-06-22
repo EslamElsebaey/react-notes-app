@@ -264,7 +264,7 @@ const editorRef = useRef(null);
                                 'anchor', 'searchreplace', 'visualblocks', 'code', 'fullscreen',
                                 'insertdatetime', 'media', 'table', 'preview', 'help', 'wordcount'
                             ],
-                            toolbar: '| forecolor backcolor | fontfamily fontsize bold italic underline strikethrough | alignleft aligncenter alignright alignjustify   |  numlist bullist |   | pagebreak |  fullscreen  preview  | ltr rtl',
+                            toolbar: '| forecolor backcolor | fontsize bold italic underline strikethrough | alignleft aligncenter alignright alignjustify   |  numlist bullist |  pagebreak |  fullscreen   | ltr rtl',
                             content_style: 'body { font-family: "Poppins", sans-serif; font-size:16px }'
                             }}
                         />
