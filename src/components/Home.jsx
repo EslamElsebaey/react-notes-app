@@ -1,23 +1,27 @@
-import React, { useEffect, useState } from 'react'
+import React, { useEffect, useState , useRef  } from 'react'
 import $ from "jquery"
 import alertify from 'alertifyjs';
 import 'alertifyjs/build/css/alertify.min.css';
 import 'alertifyjs/build/css/themes/default.min.css';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import { Editor } from '@tinymce/tinymce-react';
 
 function Home() {
 
-
     
-
-let [notes , setNotes] = useState([])
+let [notes , setNotes] = useState([]);
+// updated text in textarea saved in this state
+const [updatedDescVal, setUpdatedDescVal] = useState("");
+const [initialVal, setInitialVal] = useState("");
 const [note , setNote] = useState({
-    title : "", 
     desc : "", 
     id : Math.random()
 })
+let mynotes ;
 
+
+// check if language of note is arabic => align text to right , else align text to left
 useEffect(()=>{
     setTimeout(() => {
         let notesDiv = document.querySelectorAll(".note ") ; 
@@ -30,41 +34,35 @@ useEffect(()=>{
            }
         }
     }, 0);
-} , [note])
 
-useEffect(()=>{
+    // check if notes array is empty, add class to center (no notes div) in the midddle of the page
     if(notes.length === 0){
         $(".notes-parent").addClass("notesParent-postioned");
     }else{
         $(".notes-parent").removeClass("notesParent-postioned");
     }
-
-} , [notes])
-
+} , [note , notes])
 
 
-
-
+// check if notes are existed in local storage or not 
   useEffect(()=>{
     if(localStorage.getItem("notes")){
         setNotes(JSON.parse(localStorage.getItem("notes")))
-       
     }else {
         setNotes([])
     }
   } , [])
 
 
-   
-function handleInputChange ({target}){
-   setNote({...note , [target.name] : target.value  }  )
-}
+  let clearInput = ()=>{
+    setInitialVal("");
+    console.log(initialVal)
+  }
 
 
-let mynotes ;
-
+//  Add new note
 const addNote = () => {
-    if($(".modal-body textarea").val() !== ""){
+    if(updatedDescVal !== ""){
     mynotes = JSON.parse(localStorage.getItem('notes')) || [];
     mynotes.push(note)  ;
     setNotes(mynotes);
@@ -74,9 +72,10 @@ const addNote = () => {
         desc : "", 
         id : Math.random()
     });
+    setInitialVal("")
     toast.success('Added successfully', {
         position: "bottom-right",
-        autoClose: 2000,
+        autoClose: 1200,
         hideProgressBar: false,
         closeOnClick: true,
         pauseOnHover: true,
@@ -90,6 +89,7 @@ const addNote = () => {
   };
 
 
+// Delete single note
   function deleteNote(noteId) {
     alertify.confirm(   "Delete Note", 
     "Are you sure you want to delete this note?", function(){
@@ -101,7 +101,7 @@ const addNote = () => {
        localStorage.setItem('notes', JSON.stringify(notes));
         toast.success('Deleted successfully', {
             position: "bottom-right",
-            autoClose: 2000,
+            autoClose: 1200,
             hideProgressBar: false,
             closeOnClick: true,
             pauseOnHover: true,
@@ -112,6 +112,7 @@ const addNote = () => {
     }, function(){});
 }
 
+// Delete all notes
 function DeleteAll(){
     alertify.confirm(   "Delete all notes", 
     "Are you sure you want to delete all notes ?", function(){
@@ -119,7 +120,7 @@ function DeleteAll(){
         localStorage.removeItem("notes");
         toast.success('All deleted successfully', {
             position: "bottom-right",
-            autoClose: 2000,
+            autoClose: 1200,
             hideProgressBar: false,
             closeOnClick: true,
             pauseOnHover: true,
@@ -128,44 +129,57 @@ function DeleteAll(){
             theme: "colored",
             });
     }, function(){});
-
 }
 
-
+// when click on update icon to show update box to edit your note
 function showUpdateBox (noteId){
        let newNote = notes.filter((note)=>  {
         return note.id === noteId
        })
        localStorage.setItem("noteId" , JSON.stringify(noteId))
-       $(".modal-body input").val(newNote[0].title)
-       $(".modal-body textarea").val(newNote[0].desc) 
+       setInitialVal(newNote[0].desc)
 }
 
-function updateNote(){ 
-    let noteId = JSON.parse(localStorage.getItem("noteId"));
-    let allNotes = JSON.parse(localStorage.getItem("notes")) ;
-     let updatedNote =   allNotes.filter((note)=> {
-        return note.id === noteId
-    })
-    updatedNote[0].title = $(".modal-body input").val();
-    updatedNote[0].desc = $(".modal-body textarea").val();
-    localStorage.setItem("notes" , JSON.stringify(allNotes));
-    setNotes(allNotes)
-    toast.success('Updated successfully', {
-        position: "bottom-right",
-        autoClose: 2000,
-        hideProgressBar: false,
-        closeOnClick: true,
-        pauseOnHover: true,
-        draggable: true,
-        progress: undefined,
-        theme: "colored",
-        });
-    $(".modal-body input").val("")
-    $(".modal-body textarea").val("") 
+// update note 
+function updateNote(){
+    if(updatedDescVal !== ""){
+        let noteId = JSON.parse(localStorage.getItem("noteId"));
+        let allNotes = JSON.parse(localStorage.getItem("notes")) ;
+         let updatedNote =   allNotes.filter((note)=> {
+            return note.id === noteId
+        })
+        updatedNote[0].desc =  updatedDescVal; 
+        localStorage.setItem("notes" , JSON.stringify(allNotes));
+        setNotes(allNotes)
+       setInitialVal("")
+        toast.success('Updated successfully', {
+            position: "bottom-right",
+            autoClose: 1200,
+            hideProgressBar: false,
+            closeOnClick: true,
+            pauseOnHover: true,
+            draggable: true,
+            progress: undefined,
+            theme: "colored",
+            });
+    }else{
+        alertify.alert('Alert','You should enter the note content');
+    }
+   
+        
 }
 
 
+
+// handle change in textarea
+function handleTextareaChange (e){
+    setNote({...note , "desc" : e.target.getContent()   }  )
+    setUpdatedDescVal(e.target.getContent())
+ }
+
+
+
+// show and hide (add & update) buttons depends on user click on update or add button 
 useEffect(()=>{
 
     $(".edit").click(function(){
@@ -174,8 +188,7 @@ useEffect(()=>{
     })
     
     $(".add").click(function(){
-        $(".modal-body input").val("")
-        $(".modal-body textarea").val("") 
+        setInitialVal("")
         $(".updateBtn").hide()
         $(".addBtn").show()
     })
@@ -183,8 +196,7 @@ useEffect(()=>{
 })
 
 
-
-
+const editorRef = useRef(null);
 
 
 
@@ -195,7 +207,7 @@ useEffect(()=>{
    {/* Add new Note */}
    <div className="container mt-4 mb-4">
         <div className="  text-center">
-             <button  className="add btn" data-toggle="modal" data-target="#exampleModal"> Add
+             <button onClick={clearInput}  className="add btn" data-toggle="modal" data-target="#exampleModal"> Add
              New
              <i className="fas fa-plus-circle"></i>
              </button> 
@@ -206,8 +218,7 @@ useEffect(()=>{
                 <div className="notes-parent padding-bottom">
                 <div className="notes-container">
                 {notes.length > 0 ? notes.map((note , index)=>   <div key={index} className="note ">
-                    <div className='d-flex justify-content-between align-items-center'>
-                    <h3 className='m-0'>{note.title} </h3>
+                    <div className='d-flex justify-content-end align-items-center'>
                     <div className='d-flex align-align-items-center justify-align-content-center'>
                     <button title='edit' onClick={()=>{showUpdateBox(note.id)}} data-toggle="modal" data-target="#exampleModal"  className='edit'>
                     <i className="fas fa-edit   "></i>
@@ -217,7 +228,8 @@ useEffect(()=>{
                     </button>
                     </div>
                     </div>
-                    <p className='m-0 mt-3'> {note.desc} </p>
+
+                      <p className="m-0 mt-3" dangerouslySetInnerHTML={{ __html: `${note.desc}` }} />
                 </div>) : <h2 className='text-center  noNotesText'>There are no notes</h2>}
                 </div>
                 {notes.length === 0 ? "" :      <div className='deleteAll-holder'>
@@ -238,8 +250,24 @@ useEffect(()=>{
                     </button>
                     </div>
                     <div className="modal-body">
-                        <input placeholder="Title" onChange={handleInputChange} name="title" className="form-control" type="text" />
-                        <textarea className="form-control my-2" onChange={handleInputChange} placeholder="Note content" name="desc" id="" cols="30" rows="10"></textarea>
+                        <Editor
+                            initialValue={initialVal}
+                            textareaName='desc'
+                            onChange={(e)=>handleTextareaChange(e)}
+                            tinymceScriptSrc={process.env.PUBLIC_URL + '/tinymce/tinymce.min.js'}
+                            onInit={(evt, editor) => editorRef.current = editor}
+                            init={{
+                            height: 200,
+                            menubar: false,
+                            plugins: [
+                                'advlist', 'autolink', 'lists', 'link', 'image', 'charmap',
+                                'anchor', 'searchreplace', 'visualblocks', 'code', 'fullscreen',
+                                'insertdatetime', 'media', 'table', 'preview', 'help', 'wordcount'
+                            ],
+                            toolbar: '| forecolor backcolor | fontfamily fontsize bold italic underline strikethrough | alignleft aligncenter alignright alignjustify   |  numlist bullist |   | pagebreak |  fullscreen  preview  | ltr rtl',
+                            content_style: 'body { font-family: "Poppins", sans-serif; font-size:16px }'
+                            }}
+                        />
                     </div>
                     <div className="modal-footer">
                         <button type="button" className="btn btn-secondary" data-dismiss="modal">Close</button>

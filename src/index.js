@@ -8,7 +8,7 @@ import "jquery/dist/jquery.min.js"
 import "popper.js/dist/umd/popper.min.js"
 import "@fortawesome/fontawesome-free/css/all.min.css"
 import './index.css';
-import {  HashRouter } from 'react-router-dom';
+import {   HashRouter } from 'react-router-dom';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(

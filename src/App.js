@@ -19,7 +19,7 @@ function App() {
   <>
     <Navbar/>
    <Routes>
-    <Route path="/" element={<Login/>} />
+    <Route path="/" element={ <Protectedroute><Home/></Protectedroute>} />
     <Route path="/home" element={ <Protectedroute><Home/></Protectedroute> } />
     <Route path="/login" element={ <Login/>} />
     <Route path="/register" element={<Register/>} />
