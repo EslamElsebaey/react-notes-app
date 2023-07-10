@@ -56,7 +56,7 @@ function Register() {
     async  function sendData(e) {
         e.preventDefault() ;
         if(validateUserData() === true){
-            let {data} = await axios.post("https://route-movies-api.vercel.app/signup" ,user ) ; 
+            let {data} = await axios.post("https://movies-api.routemisr.com/signup" ,user ) ; 
             if(data.message === "success"){
                 setSuccess(data.message);
                 setError("")
