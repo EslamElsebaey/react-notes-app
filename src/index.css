@@ -223,6 +223,10 @@ color: #fff;
     bottom: 0;
     left: 0;
     box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 4px;
 }
 .developer i {
     color: red;
@@ -472,7 +476,7 @@ button[type="submit"]:hover{
         padding-bottom: 15px;
     }
     .notes-container{
-      padding: 15px   10px;
+      padding:    10px;
     }
    
     .alertify .ajs-modal{
@@ -521,6 +525,7 @@ button[type="submit"]:hover{
       }
       .deleteAllBtn{
         margin-top: 15px;
+        width: 150px;
       }
       .edit{
         margin-inline-end: 20px;
@@ -530,6 +535,7 @@ button[type="submit"]:hover{
       }
       .note{
         padding: 10px;
+        margin-bottom: 15px;
       }
    
 }
