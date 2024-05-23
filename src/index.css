@@ -87,6 +87,9 @@ a {
 }
 
 
+.modal-footer{
+    justify-content: center;
+}
 
 
 
@@ -107,6 +110,9 @@ a {
       font-family: 'Poppins', sans-serif;
 }
 
+.fa-calendar{
+    margin-inline-end: 5px;
+}
 
 .modal-body{
     padding: 10px;
@@ -142,10 +148,25 @@ textarea:focus {
 .updateBtn , .addBtn{
     background-color: #3F7BC2;
     color: #fff;
+    padding: 8px 25px;
 }
 .notfound{
     color: red;
     font-size: 35px;
+}
+.date-time{
+    display: flex;
+    background-color: #3F7BC2;
+    color: #fff;
+    padding: 4px 6px;
+    font-size: 14px;
+    border-radius: 5px;
+    direction: ltr;
+    align-items: center;
+
+}
+.closeBtn{
+    padding: 8px 15px;
 }
 textarea.form-control{
     height: auto;
@@ -360,7 +381,10 @@ button[type="submit"]:hover{
 }
 
 .note{
-    padding: 20px;
+    /* padding: 20px; */
+    
+   padding-inline: 12px;
+   padding-block: 10px;
 }
 
 .note:last-of-type{
@@ -407,6 +431,7 @@ button[type="submit"]:hover{
     .navbar-expand-lg>.container, .navbar-expand-lg>.container-fluid, .navbar-expand-lg>.container-lg, .navbar-expand-lg>.container-md, .navbar-expand-lg>.container-sm, .navbar-expand-lg>.container-xl{
         padding: 0;
     }
+   
     .Toastify__toast-body > div:last-child{
         font-size: 15px;
     }
@@ -463,9 +488,7 @@ button[type="submit"]:hover{
     .container, .container-fluid, .container-lg, .container-md, .container-sm, .container-xl{
         padding: 0 15px;
     }
-    .note{
-        padding: 12px;
-    }
+   
     .note h3 {
         font-size: 18px;
         font-weight: 500;
@@ -500,10 +523,13 @@ button[type="submit"]:hover{
         margin-top: 15px;
       }
       .edit{
-        margin-inline-end: 18px;
+        margin-inline-end: 20px;
       }
       .notes-container{
         max-height: 53vh;
+      }
+      .note{
+        padding: 10px;
       }
    
 }
