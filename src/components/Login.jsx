@@ -75,12 +75,12 @@ const [error , setError] = useState("");
         <div className="col-md-8 col-lg-5 p-0 m-auto text-center">
             <div className="login-parent">
             <form  onSubmit={sendData} action="/handleSignin" method="POST">
-                <h2 className='text-center  mb-4'>Login</h2>
+                <h2 className='text-center  mb-4'>تسجيل دخول</h2>
                 <div className="form-group">
-                    <input onChange={handleChange} autoComplete="email"  placeholder="Email" name="email" type="text" className="form-control" />
+                    <input onChange={handleChange} autoComplete="email"  placeholder="البريد الالكترونى " name="email" type="text" className="form-control" />
                   {errors.length ? errors.map((error , index)  => {
                     if(error.message.includes("email")){
-                        return <ul key={index} className='alert alert-danger mt-3 errorslist'> 
+                        return <ul key={index} className='alert alert-danger mt-2 errorslist'> 
                         <li >{errors[0].message}</li> </ul>
                     }else{
                         return  "";
@@ -88,10 +88,10 @@ const [error , setError] = useState("");
                   }) : ""}
                 </div>
                 <div className="form-group">
-                    <input onChange={handleChange} placeholder="Password" name="password" type="password" className="form-control" />
+                    <input onChange={handleChange} placeholder="كلمة المرور" name="password" type="password" className="form-control" />
                     {errors.length ? errors.map((error , index)  => {
                     if(error.message.includes("password")){
-                        return <ul key={index} className='alert alert-danger mt-3 errorslist'> 
+                        return <ul key={index} className='alert alert-danger mt-2 errorslist'> 
                         <li >{errors[1].message}</li> </ul>
                     }else{
                         return  "";
@@ -99,14 +99,14 @@ const [error , setError] = useState("");
                   }) : ""}
                 </div>
                 
-                <button type="submit" className="btn signin-btn  w-100">Sign in</button>
+                <button type="submit" className="btn signin-btn  w-100">دخول</button>
                 {
                     error &&
                      <div className="alert alert-danger  mt-3 text-center">
                         {error}
                     </div>
                 }
-                {success.includes("success") ?  <h5 className=' d-flex align-items-center justify-content-center alert alert-success  registermessage mt-3'> Successfully logined   <i className="fas fa-spinner fa-pulse"></i> </h5>  :""}
+                {success.includes("success") ?  <h5 className=' d-flex align-items-center justify-content-center alert alert-success  registermessage mt-3'> جارى تسجيل الدخول  <i className="fas fa-spinner fa-pulse"></i> </h5>  :""}
                
             </form>
             </div>

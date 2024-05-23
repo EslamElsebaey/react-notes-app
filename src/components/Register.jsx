@@ -44,6 +44,7 @@ function Register() {
       let validate =   schema.validate(user , {abortEarly  : false}); 
       if(validate.error !== undefined){
         setErrors(validate.error.details);
+        console.log(errors)
         setError("")
         return false
       }else{
@@ -75,92 +76,135 @@ function Register() {
 
   return (
     <>
-    
-    <div className="container mt-5 pt-5">
+      <div className="container mt-5 pt-5">
         <div className=" col-md-8 col-lg-5 p-0 m-auto text-center">
-            <div className="register-parent">
-            {/* {errors.length > 0 ?  <ul className='alert alert-danger errorslist'>
-          {errors.length > 0 ? errors.map((error , index) => {
-              if(error.message.includes("alpha-numeric")){
-                error.message = "Name must contains characters only"
-              }
-              if(error.message.includes("pattern")){
-                error.message = "Password must start with small character"
-              }
-              if(error.message.includes("email")){
-                error.message = "Email must be a valid email example johndoe123@gmail.com/net"
-              }
-              if(error.message.includes("age")){
-                error.message = "Age must be greater then 18 and less than 80"
-              }
-            return <li key={index} className=''>{error.message}</li>
-          }) : ""}
-          </ul> : "" }  */}
-            <form  onSubmit={sendData}>
-            <h2 className='text-center  mb-4'>Register</h2>
-                <div className="form-group">
-                    <input placeholder="First name" onChange={getUserData} name="first_name" type="text" className=" form-control" />
-                </div>
-                {errors.length ? errors.map((error , index)  => {
-                    if(error.path[0] === ("first_name")){
-                        return <ul key={index} className='alert alert-danger mt-3 errorslist'> 
-                        <li >{error.message}</li> </ul>
-                    }else{
-                        return  "";
+          <div className="register-parent">
+            <form onSubmit={sendData}>
+              <h2 className="text-center  mb-4"> تسجيل جديد</h2>
+              <div className="form-group">
+                <input
+                  placeholder="الاسم الاول"
+                  onChange={getUserData}
+                  name="first_name"
+                  type="text"
+                  className=" form-control"
+                />
+              </div>
+              {errors.length ? errors.map((error, index) => {
+                console.log(errors)
+                    if (error.path[0] === "first_name") {
+                      return (
+                        <ul
+                          key={index}
+                          className="alert alert-danger mt-2 errorslist"
+                        >
+                          <li>{error.message}</li>{" "}
+                        </ul>
+                      );
+                    } else {
+                      return "";
                     }
-                  }) : ""}
-                <div className="form-group">
-                    <input placeholder="Last name" onChange={getUserData} name="last_name" type="text" className=" form-control" />
-                </div>
-                {errors.length ? errors.map((error , index)  => {
-                    if(error.path[0] === ("last_name")){
-                        return <ul key={index} className='alert alert-danger mt-3 errorslist'> 
-                        <li >{error.message}</li> </ul>
-                    }else{
-                        return  "";
+                  })
+                : ""}
+              <div className="form-group">
+                <input
+                  placeholder="الاسم الاخير "
+                  onChange={getUserData}
+                  name="last_name"
+                  type="text"
+                  className=" form-control"
+                />
+              </div>
+              {errors.length
+                ? errors.map((error, index) => {
+                    if (error.path[0] === "last_name") {
+                      return (
+                        <ul
+                          key={index}
+                          className="alert alert-danger mt-2 errorslist"
+                        >
+                          <li>{error.message}</li>{" "}
+                        </ul>
+                      );
+                    } else {
+                      return "";
                     }
-                  }) : ""}
-                <div className="form-group">
-                    <input placeholder="Email" onChange={getUserData} type="text" name="email" className="form-control" />
-                </div>
-                {errors.length ? errors.map((error , index)  => {
-                    if(error.path[0] === ("email")){
-                        return <ul key={index} className='alert alert-danger mt-3 errorslist'> 
-                        <li >{error.message}</li> </ul>
-                    }else{
-                        return  "";
+                  })
+                : ""}
+              <div className="form-group">
+                <input
+                  placeholder="البريد الالكترونى"
+                  onChange={getUserData}
+                  type="text"
+                  name="email"
+                  className="form-control"
+                />
+              </div>
+              {errors.length
+                ? errors.map((error, index) => {
+                    if (error.path[0] === "email") {
+                      return (
+                        <ul
+                          key={index}
+                          className="alert alert-danger mt-2 errorslist"
+                        >
+                          <li>{error.message}</li>{" "}
+                        </ul>
+                      );
+                    } else {
+                      return "";
                     }
-                  }) : ""}
-                <div className="form-group">
-                    <input placeholder="Password" onChange={getUserData} type="password" name="password" className="form-control" />
-                </div>
-                {errors.length ? errors.map((error , index)  => {
-                    if(error.path[0] === ("password")){
-                        return <ul key={index} className='alert alert-danger mt-3 errorslist'> 
-                        <li >{error.message}</li> </ul>
-                    }else{
-                        return  "";
+                  })
+                : ""}
+              <div className="form-group">
+                <input
+                  placeholder="كلمة المرور"
+                  onChange={getUserData}
+                  type="password"
+                  name="password"
+                  className="form-control"
+                />
+              </div>
+              {errors.length
+                ? errors.map((error, index) => {
+                    if (error.path[0] === "password") {
+                      return (
+                        <ul
+                          key={index}
+                          className="alert alert-danger mt-2 errorslist"
+                        >
+                          <li>{error.message}</li>{" "}
+                        </ul>
+                      );
+                    } else {
+                      return "";
                     }
-                  }) : ""}
-                
-                <button type="submit" className="btn signup-btn  w-100">
-                Sign up
-                </button>
-                {
-                    error &&
-                     <div className="alert alert-danger  mt-3 text-center">
-                        {error}, go to <Link to="/login">login</Link>  page 
-                    </div>
-                }
-                {success.includes("success") ?   <h5 className=' d-flex align-items-center justify-content-center alert alert-success  registermessage mt-3'> Successfully registered  <i className="fas fa-spinner fa-pulse"></i>   </h5> :""}
-               
+                  })
+                : ""}
+
+              <button type="submit" className="btn signup-btn  w-100">
+                تسجيل
+              </button>
+              {error && (
+                <div className="alert alert-danger  mt-3 text-center">
+                  {error}, اذهب الى <Link to="/login">صفحة تسجيل الدخول</Link>{" "}
+                </div>
+              )}
+              {success.includes("success") ? (
+                <h5 className=" d-flex align-items-center justify-content-center alert alert-success  registermessage mt-3">
+                  {" "}
+                  تم التسجيل بنجاح{" "}
+                  <i className="fas fa-spinner fa-pulse"></i>{" "}
+                </h5>
+              ) : (
+                ""
+              )}
             </form>
-            </div>
-      
+          </div>
         </div>
-    </div>
+      </div>
     </>
-  )
+  );
 }
 
 export default Register

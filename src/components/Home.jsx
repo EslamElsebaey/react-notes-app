@@ -1,9 +1,10 @@
 import React, { useEffect, useState, useRef } from "react";
 import $ from "jquery";
 import alertify from "alertifyjs";
+
+import { ToastContainer, toast } from "react-toastify";
 import "alertifyjs/build/css/alertify.min.css";
 import "alertifyjs/build/css/themes/default.min.css";
-import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 // import 'react-toastify/dist/react-toastify';
 import { Editor } from "@tinymce/tinymce-react";
@@ -46,7 +47,7 @@ function Home() {
         if (arabic.test(notesDiv[i].textContent)) {
           notesDiv[i].setAttribute("dir", "rtl");
           notesDiv[i].style.textAlign = "right";
-          notesDiv[i].style.fontFamily = "El Messiri";
+          notesDiv[i].style.fontFamily = "Noto Kufi Arabic";
         }
       }
     }, 0);
@@ -103,7 +104,7 @@ function Home() {
       });
       setInitialVal("");
 
-      toast.success("Added successfully", {
+      toast.success("تم الاضافة بنجاح", {
         position: "bottom-right",
         autoClose: 1200,
         hideProgressBar: false,
@@ -114,15 +115,15 @@ function Home() {
         theme: "colored",
       });
     } else {
-      alertify.alert("Alert", "You should enter the note content");
+      alertify.alert("تنبيه", "يجب الا يكون محتوى الملاحظة فارغ !");
     }
   };
 
   // Delete single note
   function deleteNote(noteId) {
     alertify.confirm(
-      "Delete Note",
-      "Are you sure you want to delete this note?",
+      "حذف ملاحظة",
+      "هل انت متأكد انك تريد حذف الملاحظة ؟",
       function () {
         let newNotes = notes.filter((note) => {
           return note.id !== noteId;
@@ -130,7 +131,7 @@ function Home() {
         notes = [...newNotes];
         setNotes(notes);
         localStorage.setItem("notes", JSON.stringify(notes));
-        toast.success("Deleted successfully", {
+        toast.success("تم الحذف بنجاح", {
           position: "bottom-right",
           autoClose: 1200,
           hideProgressBar: false,
@@ -148,12 +149,12 @@ function Home() {
   // Delete all notes
   function DeleteAll() {
     alertify.confirm(
-      "Delete all notes",
-      "Are you sure you want to delete all notes ?",
+      "حذف جميع الملاحظات",
+      "هل انت متأكد انك تريد حذف جميع الملاحظات ؟",
       function () {
         setNotes([]);
         localStorage.removeItem("notes");
-        toast.success("All deleted successfully", {
+        toast.success("تم حذف الجميع بنجاح", {
           position: "bottom-right",
           autoClose: 1200,
           hideProgressBar: false,
@@ -189,7 +190,7 @@ function Home() {
       localStorage.setItem("notes", JSON.stringify(allNotes));
       setNotes(allNotes);
       setInitialVal("");
-      toast.success("Updated successfully", {
+      toast.success("تم التعديل بنجاح", {
         position: "bottom-right",
         autoClose: 1200,
         hideProgressBar: false,
@@ -200,7 +201,7 @@ function Home() {
         theme: "colored",
       });
     } else {
-      alertify.alert("Alert", "You should enter the note content");
+      alertify.alert("تنبيه", "يجب الا يكون محتوى الملاحظة فارغ !");
     }
   }
 
@@ -244,7 +245,7 @@ function Home() {
             data-target="#exampleModal"
           >
             {" "}
-            Add New
+            أضف ملاحظة
             <i className="fas fa-plus-circle"></i>
           </button>
         </div>
@@ -292,7 +293,9 @@ function Home() {
                 </div>
               ))
             ) : (
-              <h2 className="text-center  noNotesText">There are no notes</h2>
+              <h2 className="text-center  noNotesText">
+                لا يوجد ملاحظات حتى الآن
+              </h2>
             )}
           </div>
           {notes.length === 0 ? (
@@ -300,7 +303,7 @@ function Home() {
           ) : (
             <div className="deleteAll-holder">
               <button onClick={DeleteAll} className="deleteAllBtn">
-                Delete All
+                حذف الجميع
               </button>
             </div>
           )}
@@ -360,25 +363,18 @@ function Home() {
                   toolbar:
                     "| forecolor backcolor | fontsize bold italic underline strikethrough | alignleft aligncenter alignright alignjustify   |  numlist bullist |  pagebreak |  fullscreen   | ltr rtl",
                   content_style:
-                    'body { font-family: "Poppins", sans-serif; font-size:16px }',
+                    'body { font-family: "Noto Kufi Arabic", sans-serif; font-size:16px }',
                 }}
               />
             </div>
             <div className="modal-footer">
-              <button
-                type="button"
-                className="btn closeBtn btn-secondary"
-                data-dismiss="modal"
-              >
-                Close
-              </button>
               <button
                 data-dismiss="modal"
                 onClick={addNote}
                 className="btn addBtn "
               >
                 {" "}
-                Add Note
+                أضف
               </button>
               <button
                 data-dismiss="modal"
@@ -388,7 +384,14 @@ function Home() {
                 className="btn updateBtn "
               >
                 {" "}
-                Update Note
+                تعديل
+              </button>
+              <button
+                type="button"
+                className="btn closeBtn btn-secondary"
+                data-dismiss="modal"
+              >
+                اغلاق
               </button>
             </div>
           </div>

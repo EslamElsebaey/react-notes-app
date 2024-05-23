@@ -7,10 +7,9 @@ function NotFound() {
    
    <div className='notfound-content'>
    <h2 className="notfound">
-   Error 404  Not found 
-
+    خطأ 404 , الصفحة غير موجودة 
    </h2>
-   <Link to="/home">Go to home </Link>
+   <Link to="/home">اذهب الى الرئيسية </Link>
    </div>
    
    
