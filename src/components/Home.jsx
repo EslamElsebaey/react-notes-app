@@ -87,20 +87,7 @@ function Home() {
         title: "",
         desc: "",
         id: Math.random(),
-        date:
-          `<i class= "fas fa-calendar"></i> ` +
-          `<span>${
-            d.getDate() +
-            "/" +
-            (d.getMonth() + 1) +
-            "/" +
-            d.getFullYear() +
-            ". " +
-            ((d.getHours() + 24) % 12 || 12) +
-            ":" +
-            d.getMinutes() +
-            (d.getHours() > 12 ? " pm" : " am")
-          } </span>`,
+        date:"",
       });
       setInitialVal("");
 
@@ -152,7 +139,6 @@ function Home() {
       "حذف جميع الملاحظات",
       "هل انت متأكد انك تريد حذف جميع الملاحظات ؟",
       function () {
-        $(".ajs-cancel").text("Submit Form");
         setNotes([]);
         localStorage.removeItem("notes");
         toast.success("تم حذف الجميع بنجاح", {
@@ -226,12 +212,6 @@ function Home() {
     });
   });
 
-  // Function to format date
-  //   const formatDate = (dateString) => {
-  //     const options = { year: "numeric", month: "long", day: "numeric" };
-  //     return new Date(dateString).toLocaleDateString(undefined, options);
-  //   };
-
   const editorRef = useRef(null);
 
   return (
@@ -258,11 +238,22 @@ function Home() {
             {notes.length > 0 ? (
               notes.map((note, index) => (
                 <div key={index} className="note ">
-                  <div className="d-flex justify-content-between align-items-center">
-                    <div
-                      dangerouslySetInnerHTML={{ __html: note.date }}
-                      className="date-time"
-                    ></div>
+                  <div
+                    className={`d-flex  align-items-center
+                       ${
+                         note.date
+                           ? "justify-content-between"
+                           : "justify-content-end"
+                       } `}
+                  >
+                    {note.date ? (
+                      <div
+                        dangerouslySetInnerHTML={{ __html: note.date }}
+                        className="date-time"
+                      ></div>
+                    ) : (
+                      ""
+                    )}
                     <div className="d-flex align-align-items-center justify-align-content-center">
                       <button
                         title="edit"
