@@ -46,6 +46,9 @@ body {
   font-family: "Noto Kufi Arabic", sans-serif;
   text-align: right;
 }
+.Toastify__toast-body{
+  font-family: "Noto Kufi Arabic", sans-serif;
+}
 .alertify .ajs-commands{
   left: 5px;
   right: unset;
@@ -106,6 +109,9 @@ a {
 }
 .alertify .ajs-body .ajs-content .ajs-input {
   font-family: "Noto Kufi Arabic", sans-serif;
+}
+.alertify .ajs-footer .ajs-buttons.ajs-primary{
+  text-align: left;
 }
 
 .fa-calendar {

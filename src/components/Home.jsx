@@ -10,9 +10,12 @@ import "react-toastify/dist/ReactToastify.css";
 import { Editor } from "@tinymce/tinymce-react";
 
 function Home() {
+  // Edit Alertify buttons text
 
-     let d = new Date();
+  alertify.defaults.glossary.ok = "موافق";
+  alertify.defaults.glossary.cancel = "إلغاء";
 
+  let d = new Date();
 
   let [notes, setNotes] = useState([]);
   // updated text in textarea saved in this state
@@ -41,13 +44,12 @@ function Home() {
   // check if language of note is arabic => align text to right , else align text to left
   useEffect(() => {
     setTimeout(() => {
-      let notesDiv = document.querySelectorAll(".note ");
-      var arabic = /[\u0600-\u06FF]/;
+      let notesDiv = document.querySelectorAll(".note p");
+      var english = /[a-zA-Z]/;
       for (let i = 0; i < notesDiv.length; i++) {
-        if (arabic.test(notesDiv[i].textContent)) {
-          notesDiv[i].setAttribute("dir", "rtl");
-          notesDiv[i].style.textAlign = "right";
-          notesDiv[i].style.fontFamily = "Noto Kufi Arabic";
+        if (english.test(notesDiv[i].textContent)) {
+          console.log(notesDiv[i].textContent);
+          notesDiv[i].style.textAlign = "left";
         }
       }
     }, 0);
@@ -73,8 +75,6 @@ function Home() {
     setInitialVal("");
     console.log(initialVal);
   };
-
- 
 
   //  Add new note
   const addNote = () => {
@@ -152,6 +152,7 @@ function Home() {
       "حذف جميع الملاحظات",
       "هل انت متأكد انك تريد حذف جميع الملاحظات ؟",
       function () {
+        $(".ajs-cancel").text("Submit Form");
         setNotes([]);
         localStorage.removeItem("notes");
         toast.success("تم حذف الجميع بنجاح", {
@@ -226,10 +227,10 @@ function Home() {
   });
 
   // Function to format date
-//   const formatDate = (dateString) => {
-//     const options = { year: "numeric", month: "long", day: "numeric" };
-//     return new Date(dateString).toLocaleDateString(undefined, options);
-//   };
+  //   const formatDate = (dateString) => {
+  //     const options = { year: "numeric", month: "long", day: "numeric" };
+  //     return new Date(dateString).toLocaleDateString(undefined, options);
+  //   };
 
   const editorRef = useRef(null);
 

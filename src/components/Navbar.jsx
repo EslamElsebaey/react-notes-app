@@ -47,10 +47,10 @@ useEffect(() => {
                     </li>
                 </ul> :  <ul className="navbar-nav mr-auto">
                     <li className={`nav-item ${location.pathname !== "/home" ? 'margin-bottom' : ""}  ` }    >
-                        <Link  className="nav-link" to="/register">تسجيل</Link>
+                        <Link  className="nav-link" to="/register"> تسجيل جديد</Link>
                     </li>
                     <li className="nav-item">
-                    <Link  className="nav-link" to="/login">دخول</Link>
+                    <Link  className="nav-link" to="/login">تسجيل دخول</Link>
                     </li>
                 </ul>  } 
                
